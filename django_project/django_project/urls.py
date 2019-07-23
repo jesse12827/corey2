@@ -14,8 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+
+#    NOTE: The commented line below will require ip:8000/blog as the url path   
+#     path('blog/', include('myblog.urls')),
+
+#     The one below would only require ip:8000 as the url for the blog app
+
+    path('', include('myblog.urls')),
+
 ]
